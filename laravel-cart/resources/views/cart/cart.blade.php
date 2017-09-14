@@ -25,6 +25,7 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Price</th>
+                            <th>Sub Total</th>
                             <th>Quantity</th>
                             <th>Photo</th>
                             <th class="text-center">
@@ -35,6 +36,7 @@
                         <tr>
                             <td>{{ $c->name }}</td>
                             <td>{{ str_limit($c->description, 100) }}</td>
+                            <td style="width: 100px">$ {{ $c->price}}</td>
                             <td style="width: 100px">$ {{ $c->price * $c->quantity}}</td>
                             <td style="width: 100px">
                                 <input style="width:50px" id="product_{{ $c->id }}" type="number" value="{{ $c->quantity }}">
@@ -48,6 +50,9 @@
                         @endforeach
                     </table>
                     <div class="alert alert-info text-center"><b>Total a pagar: </b>$ {{$total}}</div>
+                    <div class="text-center">
+                        <a href="{{ url('cart/next') }}" class="btn btn-primary btn-md">siguiente</a>
+                    </div>
                 </div>
             @endif
             </div>

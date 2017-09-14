@@ -79,4 +79,19 @@ class CartController extends Controller
         //lo mandamos a la ruta 'cart/show'
     	return redirect('cart/show');
     }
+
+    //detalle del pedido,listo para pagar
+    public function orderDetail(){
+        //primero verficamos si tiene items, osea si compro o selecciono algun item para comprar
+        if (count(Session::get('cart')) <= 0) {
+            //si no tiene redireccionamos al home donde se listan todos los productos
+            return redirect()->route('home');
+        }
+        //si tiene entonces le mandamos la data almacenada de todos los items seleccionados por el 'user'
+        $data['cart'] = Session::get('cart');
+        //y tambien mandamos el total para mostrarle el total a pagar
+        $data['total'] = $this -> total();
+        //y lo mandamos a la vista -> orden del pedido dentro de la carpeta 'cart'
+        return view('cart.orderDetail', $data);
+    }
 }

@@ -36,3 +36,6 @@ Route::get('/cart/remove/{id}','CartController@remove');
 Route::get('/cart/edit/{id}/{quantity}','CartController@edit');
 //vacio o limpio todo mi carrito
 Route::get('/cart/clean','CartController@clean');
+
+//detalle del pedido
+Route::get('/cart/next', 'CartController@orderDetail');
