@@ -53,7 +53,7 @@
                     <div class="alert alert-info text-center">
                         <a href="{{ url('cart/show') }}" class="btn btn-info btn-md">regresar</a>
                         <a href="/home" class="btn btn-primary btn-md">Seguir comprando</a>
-                        <a href="#" class="btn btn-success btn-md">Pagar con Paypal</a>
+                        <a href="{{ route('payment') }}" class="btn btn-success btn-md">Pagar con Paypal</a>
                     </div>
                 <!-- </div> -->
 
