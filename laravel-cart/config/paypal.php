@@ -1,8 +1,8 @@
 <?php
 return array(
     // set your paypal credential
-    'client_id' => 'Aesa4SgbyWHjYOHlxUTLru22KNDKzdPFuhS9n04AMwyv08dhTUlS84Piiih-R19g6uLAiMfYPt5mP3r8',
-    'secret' => 'EPfbORv6ZZx9C_M1WSUKDk0NGqcS6-S4wE3XdjYQjXHvF1MnBJMNsinKgSICgrb2oV8Yrk85-99AuzBv',
+    'client_id' => 'mi client id',
+    'secret' => 'mi secret id',
     /**
      * SDK configuration 
      */
