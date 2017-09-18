@@ -1,0 +1,169 @@
+DATA de nuestras 2 paginas subidas a internet
+mediante FTP puerto 21
+
+------ debatexpress.esy.es --------
+ip servidor: 31.170.164.157
+nombre user : u838504698
+pass : debatexpress
+
+------ laravelwebsite.esy.es ------
+ip servidor: 31.170.164.160
+nombre user: u103523834
+pass: cristian
+
+--------------------------------------
+pasos para subir nuestra pagina hecha en laravel aun hosting
+ctrl + h = para ver los archivos ocultos incluido el .htacces
+sino no nuestras rutas no enrutaran y dara error o no se veran nuestras vistas
+--------------------------------------
+paso1:
+crear una carpeta llamada local dentro de nuestro proyecto,
+osea tenemos que entrar a la carpeta de nuestro proyecto 
+x Ej: entramos a php-hackaton-2017 ahi adentro seria la raiz, bueno ahi la creamos
+
+paso2:
+cortamos y movemos todos nuestros archivos y carpetas a la carpeta anteriormente creada,
+menos la carpeta public, de esta manera solo quedan 2 carpetas local y public
+
+paso3:
+cortamos o movemos todos los archivos que tenemos dentro de la carpeta public 
+afuera de este de manera que estos esten afuera en la raiz
+
+paso4:
+eliminamos la carpeta public x ya se encuentra vacio
+
+paso5:
+habrir el archivo index.php que esta ahi en la raiz que se encarga de inicializar
+cambiar el los requires, los dos que hay y son lo unicos 2 que hay
+cambiar los doble puntos x local de esta manera require __DIR__.'/local/bootstrap/autoload.php';
+y el otro tambien
+
+paso6:
+eso es todo lo q tenemos que hacer y nos vamos a nuestro servidor acrear la DB
+
+paos7:
+crear un dominio en el hostinger, exportar nuestra base de datos
+para subirlo a hostinger como lo haciamos antes, los archivos y carpetas
+los subimos por el mismo fpt que tiene hostinger o por nuestro ftp que tenemos
+
+paso8:
+cambiar los datos de coneccion a la DB en .env y sustituirlos por los datos que
+tenemos al en hostinger al crear la DB, tambien tenemos q cambiar entrando ala carpeta
+config/database.php y sustituir los datos  de coneccion por los mismos de la DB en hostinger
+cambiar el puerto 3306 a 21 en el archivo database
+
+paso9:
+el archivo .htaccess que tenemos en la raiz de public_html debe ser asi, advertencia no quitar
+esta linea es importante tenga el .htaccess # Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+RewriteBase /
+
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+RewriteBase /
+-------------------------------------------
+Options +SymLinksIfOwnerMatch
+RewriteEngine On
+
+# Redirect Trailing Slashes If Not A Folder...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Handle Front Controller...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?$1 [L]
+
+# Handle Authorization Header
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+para que nos lea las rutas y uris amigables
+-------------------------------------------
+paso10:
+en config/app.php cambiar esta line
+'url' => env('APP_URL', 'http://debatexpress.esy.es/'), la ruta de la url debe ser nuestra ruta o dominio
+
+paso11:
+dentro de la carpeta app/providers/AppserviceProvider.php buscar register(), este metodo debe estar asi
+
+    public function register()
+    {
+	//asi
+        $this->app->bind('path.public', function() {
+            return base_path().'/public_html';
+        });
+    }
+
+paso12:
+dentro de la carpeta vendor/laravel/framework/src/Illuminate/Foundation/Aplication.php
+en la linea 369 el metodo public function publicPath() debe estar asi public_html
+
+    public function publicPath()
+    {
+        return $this->basePath.DIRECTORY_SEPARATOR.'public_html';
+    }
+
+tambien en este caso buscar dentro de la carpeta local un archivo server.php
+y cambiar lo /public/ por /public_html/ debe verse asi
+
+if ($uri !== '/' && file_exists(__DIR__.'/public_html'.$uri)) {
+    return false;
+}
+
+require_once __DIR__.'/public_html/index.php';
+
+paso13:
+ESO ES TODO LO QUE DEBEMPOS MODIFICAR
+no olvidemos cambiarlo a modo production y ocultar los errores en false
+eso seria en el archivo .env
+
+APP_ENV=local //esto ponerlo en production
+APP_KEY=base64:hBFBdUbh1nHGqpS/Jrb03PmqDvEflRyxKnnkBBv9mpM=
+APP_DEBUG=true //false
+APP_LOG_LEVEL=debug
+APP_URL=http://debatexpress.esy.es
+
+DB_CONNECTION=mysql.hostinger.com.ar //nuestro host donde se aloja nuestra DB
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=u838504698_db //data
+DB_USERNAME=u838504698_criss //data
+DB_PASSWORD=debatexpress //data
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+ESO ES TODA LA CONFIGURACION, CREO QUE LAS RUTAS SI VIENEN POR GET NO NOS LOS TOMA X EJ: laravelwebsite.esy.es/autos?marca=toyota
+esto no funciona creo que deberia ser algo asi laravelwebsite.esy.es/autos/marca/toyota
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

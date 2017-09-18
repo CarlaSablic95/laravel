@@ -1,0 +1,16 @@
+      paraL tener el .htaccess activado se debe crear un enlace simbolico en la ruta /etc/apache2 y ejecutar el siguiente comando
+
+		: cd /etc/apache2/mods-enabled
+		: sudo ln -s /etc/apache2/mods-available/rewrite.load rewrite.load   //crea el enlace
+		: sudo /etc/init.d/apache2 restart    //reinicia apache
+
+		Luego
+
+		: abrir el archivo apache2.conf que se encuentra en /etc/apache2 y donde dice
+
+		<Directory /mi/sitio/web/mi/ruta/>
+  			 ..otras directivas aqui
+   			AllowOverride None     //Cambiarlo por -> All
+		</Directory>
+
+		:listo gurdamos y reiniciamos apache2 :  sudo /etc/init.d/apache2 restart

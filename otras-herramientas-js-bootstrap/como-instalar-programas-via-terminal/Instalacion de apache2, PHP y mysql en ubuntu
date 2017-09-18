@@ -1,0 +1,29 @@
+   INSTALACION DE APACHE2, PHP7.0 Y MySQL EN UBUNTU 16.04 LTS
+	
+	
+   sudo apt-get install apache2 php7.0 libapache2-mod-php7.0 mysql-server php7.0-mysql php7.0-mcrypt
+
+   la carpeta estara en /var/www/html.
+   
+   luego debemos entrar a /etc/apache2/site-available y abrir con nano el archivo 000-default.conf y donde dice documentRoot /var/www/html,
+   nosotros le tenemos que dejar en /var/www.
+   depues le damos persimos de ejecucion ala carpeta www con sudo chmod -R 777 www y ya despues podemos crear archivos y carpetas
+
+   para iniciar apache2 se escribe esto: sudo service apache2 restart, start o stop.
+   tambien de esta menera se puede ectivar el apache2: sudo /etc/init.d/apache2 start, stop o restart
+
+
+   Como instalar phpmyadmin
+
+   hacer un sudo apt-get update
+   luego un sudo apt-get install phpmyadmin
+
+   si tenemos un error del usuario invalido igual podemos usarlo normalmente, solo tenemos que dirigirnos a /etc/phpmyadmin y abrir el 	archivo
+   config.inc.php y dejar vacios los campos de $dbuser y $dbpass este es el ejemplo:
+
+    /* Optional: User for advanced features */
+
+    $cfg['Servers'][$i]['controluser'] = ""; antes tenian $dbuser;
+    $cfg['Servers'][$i]['controlpass'] = ""; y este $dbpass;
+   
+    y ya con eso se soluciona.

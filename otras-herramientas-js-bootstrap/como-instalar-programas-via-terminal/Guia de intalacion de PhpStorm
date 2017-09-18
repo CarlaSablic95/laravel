@@ -1,0 +1,28 @@
+1: Primero descomprimos el archivo phpstorm
+
+2: lo movemos a home/criss y despues todo el codigo siguiente, pero antes entra a descargas xq ahi lo descomprimiste
+
+3: sudo mv PhpStorm-162.1121.38 /opt/phpstorm
+
+4: sudo nano phpstorm.desktop
+
+5: adentro pegamos esto sin espacios
+
+[Desktop Entry]
+Name=PhpStorm
+Type=Application
+Exec=phpstorm.sh
+Terminal=false
+Icon=webide
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=PhpStorm
+
+6: sudo desktop-file-install phpstorm.desktop
+
+7: sudo ln -s /opt/phpstorm/bin/phpstorm.sh /usr/local/bin
+
+8: sudo cp /opt/phpstorm/bin/webide.png /usr/share/pixmaps/webide.png
+
+y listo, ya deveria aparecerte el icono buscandolo

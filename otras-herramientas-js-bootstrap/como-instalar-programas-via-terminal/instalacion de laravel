@@ -1,0 +1,28 @@
+GUIA DE INSTALACION DE LARAVEL EN UBUNTU:	
+
+1: instalar composer mediante la terminal:  sudo apt-get install composer, tambien instalar git, pero al instalar composer este ya viene
+incluido con el composer
+2: dirigisrse a tu directorio de trabajo en var/www/ y ahi adentro ejecutar o instalar laravel haciendo una clonacion con git o bien haciendo la instalacion con composer aqui un ejemplo de las 2 formas:
+	
+	HACERLO MEDIANTE LA TERMINAL	
+
+    a) composer create-project --prefer-dist laravel/laravel nombre_del_directorio_donde_se_instalara
+    b) git clone https://github.com/laravel/laravel.git nombre_del_directorio_donde_se_instalara
+    c) luego hacer un: composer update
+
+
+3: localizar el archivo .env.axample y comfigurar esta parte con nuestros datos correspondientes
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=prueba
+DB_USERNAME=root
+DB_PASSWORD=criss
+
+luego guardarlo como .env esto es muy importante hacerlo
+
+4: ya estando adentro del directorio creado con laravel ejecutar este comando en nuestra ruta de trabajo : php artisan key:generate
+este creara una KEY en el archivo anterior que lo guardamos como .env
+5:por ultimo ejecutamos este comando en nuestro directorio que creamos con laravel claro: php artisan serve
+este iniciara nuestro server local y listo!

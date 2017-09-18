@@ -1,0 +1,7 @@
+Instacion de sublime text3
+
+1: sudo add-apt-repository ppa:webupd8team/sublime-text-3
+
+2: sudo apt-get update
+
+3: sudo apt-get install sublime-text-installer
