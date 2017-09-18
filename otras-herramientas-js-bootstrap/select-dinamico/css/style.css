@@ -1,0 +1,31 @@
+body{
+	background: #333;
+	text-align: center;
+	margin-top: 100px;
+}
+
+h1{
+	color: #fff;
+	font-family: Verdana;
+}
+.contenedor{
+	margin: 0 auto;
+}
+.contenedor select{
+	width: 400px;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.footer{
+	font-family: Verdana;
+	font-size: 14px;
+	color: #fff;
+}
+
+.footer a{
+	text-decoration: none;
+	color: #cb29c5;
+	font-weight: bold;
+}

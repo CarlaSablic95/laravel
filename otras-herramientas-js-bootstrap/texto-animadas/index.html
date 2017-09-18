@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>myApp</title>
+	<style>
+		*{padding: 0; margin: 0; box-sizing:border-box;}
+		html, body{
+			height: 100%
+		}
+		#container{
+			min-height: 100%;
+			flex-direction:column;/*row*/
+			justify-content:space-between;
+		}
+		.flex{
+			display: flex!important;
+		}
+		#container>header{
+			flex-direction:row;
+			justify-content:space-between;
+			align-items:center;
+			padding: 15px;
+			background: rgba(0,0,0,0.5);
+			box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+		}
+		#container>header h1, #container>header nav a{
+			color: white;
+			text-decoration: none;
+		}
+
+		#container>header nav a{
+			margin: 0 15px
+		}
+		#container>footer{
+			color: white;
+			background: rgba(0,0,0,0.5);
+			padding: 15px;
+		}
+		#container>footer p{
+			text-align: center;
+		}
+		.fadeInUpDown{
+            -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+              -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+              -webkit-backface-visibility: visible !important;
+              backface-visibility: visible !important;
+              -webkit-animation-name: flipInX;
+              animation-name: flipInX;
+              display: inline-block!important;
+        }
+        @-webkit-keyframes flipInX {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipInX {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+	</style>
+</head>
+<body>
+	
+<p class="website"> animi soluta possimus, nisi quod modi explicabo.</p>
+		
+
+
+
+
+
+
+
+
+
+	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+	<script type="text/javascript" src="scripts.js"></script>
+	<script type="text/javascript" src="jquery.dataTables.js"></script>
+</body>
+</html>

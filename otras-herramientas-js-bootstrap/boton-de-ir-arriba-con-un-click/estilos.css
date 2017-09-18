@@ -1,0 +1,17 @@
+.ir-arriba{
+	width: 70px;
+	display: none;
+	background-color: #051426;
+	color: white;
+	cursor: pointer;
+	position: fixed;
+	bottom: 4px;
+	right: 3px;
+	z-index: 1000;
+	border-radius: 50px 50px 0px 0px;
+	box-shadow: 0px 10px 16px #7DABD6;
+}
+.icon-keyboard_arrow_up{
+	font-size: 40px;
+	text-align: center;
+}
